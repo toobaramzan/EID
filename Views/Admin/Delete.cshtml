@@ -1,0 +1,59 @@
+﻿@model WatchStoreMvcProject.Models.watch_data
+<!--start-breadcrumbs-->
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Admin/AdminPanel">Admin</a></li>
+                    <liS class="active">Delete Product</liS>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!--end-breadcrumbs-->
+    <!--prdt-starts-->
+    <div class="prdt">
+        <div class="container">
+            <h3>Are you sure you want to delete this?</h3>
+
+            <div class="prdt-top">
+                <div class="col-md-9 prdt-left">
+                    <div class="product-one">
+                      
+                            <div class="col-md-4 product-left p-left" id="productmargin">
+                                <div class="product-main simpleCart_shelfItem">
+                                    <a href="~/Home/single/@Model.model_number" class="mask"><img class="img-responsive zoom-img" src="~/img/@Model.pic" alt="" width="140" height="250" /></a>
+                                    <div class="product-bottom">
+                                        <h3>@Model.name</h3>
+                                        <p>Explore Now</p>
+                                        <h4><a class="item_add" href="#"><i></i></a> <span class="item_price">$ @Model.price</span>
+                                        
+                                      
+                                                <button>
+                                                    <a href="~/Admin/DeleteConfirmed?id=@Model.model_number">Delete</a>
+                                                </button> |
+                                             @Html.ActionLink("Back", "DeleteProduct")
+                                            
+</h4>
+                                       
+                                           
+                                        
+                                    </div>
+                                    <div class="srch srch1">
+                                        <span>-50%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+             
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Products End-->

@@ -1,0 +1,48 @@
+﻿@model WatchStoreMvcProject.Models.watch_data
+
+<div class="innerBody">
+    <div class="outerBox">
+        <h4 id="head2" align="center">You will receive your<i><b>Order</b></i>soon!</h4>
+        <h6 align="center">Pay cash on delivery</h6><br>
+        <div id="addCartsideimg">
+           
+            <img src="~/images/shopping-cart.png" width="300" />
+        </div>
+        <div id="kidinfo" align="center">
+            <table id="table1">
+
+                <tr>
+                    <td class="row">Model Number:</td>
+                    <td class="row">@Model.model_number</td>
+                </tr>
+
+                <tr>
+                    <td class="row">Total Price($):</td>
+                    <td class="row">@Model.price</td>
+                </tr>
+                <tr>
+
+                    <td class="row">order quantity:</td>
+                    <td class="row">@Model.quantity</td>
+                </tr>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+        $(document).ready(function () {
+
+
+            $('#qan').click(function () {
+
+
+
+            });
+        });
+
+</script>

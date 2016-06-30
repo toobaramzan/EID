@@ -1,0 +1,52 @@
+﻿
+@model WatchStoreMvcProject.Models.userData
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li class="active">Login/Sign Up</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="outerBox">
+        <h4 id="head2" align="center">Welcome to <i><b>Login</b></i> menu!</h4><br>
+       @{ 
+           if ( ViewBag.loginError!="" &&Model.uname!=null && Model.password!=null)
+           {
+               <h5 class="errorMsg" align="center">@ViewBag.loginError</h5>
+           }
+           if (ViewBag.cartloginError != "")
+           {
+            <h5 class="errorMsg" align="center">@ViewBag.cartloginError</h5>
+           }
+    }
+      
+  
+@using (Html.BeginForm("login", "Home" , FormMethod.Post))
+{
+            <div id="text">
+                Enter your username: &nbsp;  &nbsp;  &nbsp;
+                
+
+                    @Html.TextBoxFor(model => model.uname)
+                    @Html.ValidationMessageFor(model => model.uname)
+
+                <br /><br />
+                Enter password: &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; 
+                
+                    @Html.PasswordFor(model => model.password)
+                    @Html.ValidationMessageFor(model => model.password)
+                <br /><br />
+                <div id="forget">
+                @Html.ActionLink("Forget Password","forgetPassword", "Home")</div>
+            </div>
+            <input class="submit" id="radio1" type="submit" name="submit">
+}
+            <br><h6 id="head" align="center">If you don't have an account then create now! <em>Sign up</em> is free</h6>
+            <h6 align="center"><a href="~/Home/register"><img src="~/images/sign up.png" alt=""></a></h6>
+        
+            </div>
+</div>

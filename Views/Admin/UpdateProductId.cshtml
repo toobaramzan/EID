@@ -1,0 +1,63 @@
+﻿@model WatchStoreMvcProject.Models.watch_data
+
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Admin/AdminPanel">Admin</a></li>
+                    <li class="active">Update Record</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="outerBox">
+        <h4 id="head2" align="center">To insert new <i><b>Product</b> please insert data below!</i> </h4><br>
+
+        @using (Html.BeginForm("UpdateProductId", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div id="text">
+                Furniture Name<br /><br />
+
+                @Html.TextBoxFor(model => model.name, new {Model.name})<br>
+                @Html.ValidationMessageFor(model => model.name)<br><br />
+
+                Furniture Brand <br /><br />
+
+                @Html.TextBoxFor(model => model.brand, new { Model.brand})<br>
+                @Html.ValidationMessageFor(model => model.brand)<br /><br>
+                Furniture Price<br /><br />
+
+                @Html.TextBoxFor(model => model.price,new { Model.price})<br>
+                @Html.ValidationMessageFor(model => model.price)<br /><br>
+                Furniture Size <br /><br />
+
+                @Html.TextBoxFor(model => model.size,new { Model.size})<br>
+                @Html.ValidationMessageFor(model => model.size)<br /><br>
+                Furniture Color <br /><br />
+
+                @Html.TextBoxFor(model => model.color, new { Model.color})<br>
+                @Html.ValidationMessageFor(model => model.color)<br /><br>
+                Furniture Description <br /><br />
+
+                @Html.TextBoxFor(model => model.description, new { Model.description})<br>
+                @Html.ValidationMessageFor(model => model.description)<br /><br>
+                Furniture Model Number <br /><br />
+               
+                @Html.TextBoxFor(model => model.model_number, new { Model.model_number,readOnly=true})<br />
+                <h6>You can't change the model number of product!</h6>
+                <br><br>
+                Furniture Picture <br /><br />
+                <input type="file" name="pic" /><br />
+                @Html.ValidationMessageFor(model => model.pic)<br><br />
+            </div>
+            <input class="submit" id="radio1" type="submit" name="Update">
+        }
+
+        <script>
+            $(Document).ready(function () {
+
+            });
+        </script>
+    </div>
+</div>

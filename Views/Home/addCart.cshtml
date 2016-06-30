@@ -1,0 +1,69 @@
+﻿.@model WatchStoreMvcProject.Models.watch_data
+
+<div class="innerBody">
+    <div class="outerBox">
+        <h4 id="head2" align="center">Add products to <i><b>Cart</b></i></h4><br>
+        <div id="childimg">
+            <img src="~/images/@Model.pic">
+        </div>
+        <div id="addCartsideimg">
+            @{
+                var count = 1;
+
+            }
+            <img src="~/images/shopping-cart.png" width="300" />
+        </div>
+        <div id="kidinfo">
+            <table id="table1">
+
+                <tr>
+                    <td class="row">Model Number:</td>
+                    <td class="row">@Model.model_number</td>
+                </tr>
+
+                <tr>
+                    <td class="row">Color:</td>
+                    <td class="row">@Model.color</td>
+                </tr>
+                <tr>
+                    <td class="row">Size:</td>
+                    <td class="row">@Model.size</td>
+                </tr>
+                <tr>
+                    <td class="row">Price($):</td>
+                    <td class="row">@Model.price</td>
+                </tr>
+                <tr>
+
+                    <td class="row">ordered:</td>
+                    <td id="count" class="row">@count &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                <tr>
+                    <td>@Html.ActionLink("Add more Products", "products")</td>
+                    <td><img src="~/images/bcart.png" id="qan" width="80" height="60" /></td>
+                </tr>
+            </table>
+
+            <div id="buynow">
+                <a href="~/Home/addToCart">
+                    <img src="~/images/buynow.png" alt=""
+                         width="200" height="80">
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+        $(document).ready(function () {
+            $('#plus').click(function () {
+                alert("plus");
+                });
+            });
+        });
+
+</script>

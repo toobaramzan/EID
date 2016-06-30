@@ -1,0 +1,53 @@
+﻿@model List<WatchStoreMvcProject.Models.watch_data>
+	<!--start-breadcrumbs-->
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Admin/AdminPanel">Admin /</a></li>
+                    <liS class="active">Delete Products</liS>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!--end-breadcrumbs-->
+    <!--prdt-starts-->
+    <div class="prdt">
+        <div class="container">
+            <div class="prdt-top">
+                <div class="col-md-9 prdt-left">
+                    <div class="product-one">
+                        @foreach (var p in Model){
+                                <div class="col-md-4 product-left p-left" id="productmargin">
+                                    <div class="product-main simpleCart_shelfItem">
+                                      <img class="img-responsive zoom-img"  src="~/img/@p.pic" alt="" width="140" height="250" />
+                                        <div class="product-bottom">
+                                            <h3>@p.name</h3>
+                                            <p>Explore Now</p>
+                                            <h4><a class="item_add" href="#"><i></i></a> <span class="item_price">$ @p.price</span>
+                                                &nbsp;&nbsp; &nbsp;    <button>
+                                                    <a href="~/Admin/Delete?id=@p.model_number">Delete</a>
+                                                </button>
+                                            </h4>
+                                         
+                                      
+                                         </div>
+                                        <div class="srch srch1">
+                                            <span>-50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                        }
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+              
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Products End-->

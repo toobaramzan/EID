@@ -1,0 +1,115 @@
+﻿@model WatchStoreMvcProject.Models.watch_data
+
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Admin/AdminPanel">Admin</a></li>
+                    <li class="active">Insert Record</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="outerBox">
+        <h4 id="head2" align="center">To insert new <i><b>Product</b> please insert data below!</i> </h4><br>
+        @{ 
+            if(ViewBag.stored!="")
+            {
+                <h5>@ViewBag.stored</h5>
+            }
+        }
+      
+@using (Html.BeginForm("InsertProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+            <div id="text">
+                Furniture Name<br /><br />
+                
+                @Html.TextBoxFor(model=>model.name)<br>
+                @Html.ValidationMessageFor(model => model.name)<br><br />
+
+                Furniture Brand <br /><br />
+
+                @Html.TextBoxFor(model=>model.brand)<br>
+                @Html.ValidationMessageFor(model => model.brand)<br /><br>
+                Furniture Price<br /><br />
+             
+                @Html.TextBoxFor(model=>model.price)<br>
+                @Html.ValidationMessageFor(model => model.price)<br /><br>
+                Furniture Size <br /><br />
+             
+                @Html.TextBoxFor(model=>model.size)<br>
+                @Html.ValidationMessageFor(model => model.size)<br /><br>
+                Furniture Color <br /><br />
+                
+                @Html.TextBoxFor(model=>model.color)<br>
+                @Html.ValidationMessageFor(model => model.color)<br /><br>
+                Furniture Description <br /><br />
+               
+                @Html.TextBoxFor(model=>model.description)<br>
+                @Html.ValidationMessageFor(model => model.description)<br /><br>
+                Furniture Model Number <br /><br />
+               
+                @Html.TextBoxFor(model=>model.model_number)<br />
+                @Html.ValidationMessageFor(model => model.model_number)<br />
+               <div id="result"></div>
+                Furniture Quantity<br /><br />
+                <input type="number" min="0" name="quantity" /><br />
+                @Html.ValidationMessageFor(model => model.quantity)<br />
+                Furniture Picture <br /><br />
+                <input type="file" name="pic" /><br />
+                @Html.ValidationMessageFor(model => model.pic)<br><br />
+                <div id="picerror"></div>
+            </div>
+            <input class="submit" id="radio1" type="submit" name="Insert">
+}
+
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script>
+        $(document).ready(function () {
+
+
+            $('#model_number').focusout(function () {
+
+                var model = $('#model_number').val();
+
+                $.getJSON("/Admin/CheckModelName?model_number=" + model, function (data) {
+                    if (data) {
+                        $('#result').text("");
+                       
+                    }
+                    else {
+                        $('#result').text("Furniure with" + model + " model number already exists in database");
+                        $('#result').css("color", "red");
+                        $('#model_number').val("");
+                        $('#model_number').focus();
+                    }
+                });
+
+            });
+
+        });
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('#radio1').click(function () {
+            var p = $('#pic').val();
+            var ext = p.substring(p.lastIndexOf('.') + 1);
+            $('#result').text("Furniture with" + p + " model number already exists in database");
+            $('#result').css("color", "red");
+            if (ext != "gif" && ext != "GIF" && ext != "JPEG" && ext != "jpeg" && ext != "jpg" && ext != "JPG" && ext != "png" && ext != "png") {
+                $('#picerror').text("Please upload image file only!");
+                $('#picerror').css("color", "red");
+                $('#pic').focus();
+            }
+            else
+            {
+                $('#picerror').text("Please upload image file only!");
+                $('#picerror').css("color", "red");
+            }
+        });
+    });
+</script>
