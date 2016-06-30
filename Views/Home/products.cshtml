@@ -1,0 +1,78 @@
+﻿@model List<WatchStoreMvcProject.Models.watch_data>
+	<!--start-breadcrumbs-->
+<div class="innerBody">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-main">
+                <ol class="breadcrumb">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <liS class="active"> / New Products</liS>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!--end-breadcrumbs-->
+    <!--prdt-starts-->
+    <h2 align="center"><i>Our Products</i></h2>
+    <div class="prdt">
+        <div class="container">
+            
+            
+            <div class="prdt-top">
+                <div class="col-md-9 prdt-left">
+                    <div class="product-one">
+                        @foreach (var p in Model){
+                                <div class="col-md-4 product-left p-left" id="productmargin">
+                                    <div class="product-main simpleCart_shelfItem" >
+                                        <a href="~/Home/single?id=@p.model_number" class="mask"><img class="img-responsive zoom-img" src="~/img/@p.pic" alt="" width="250" height="900" /></a>
+                                        <div class="product-bottom">
+                                            <h3>@p.name</h3>
+                                            <p>Explore Now</p>
+                                            <h4><a class="item_add" href="#"><i></i></a> <span class="item_price">$ @p.price</span></h4>
+                                        </div>
+                                        <div class="srch srch1">
+                                            <span>-50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                        }
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-3 prdt-right">
+                    <div class="w_sidebar">
+                        <section class="sky-form">
+                            <h4>Catogories</h4>
+                            <div class="row1 scroll-pane">
+
+                                <div class="col col-4">
+                                    <label><i></i><a id="lis" href="~/Home/products">Beds</a></label>
+                                    <label><i></i><a id="lis" href="~/Home/products">Sofa</a></label>
+                                    <label><i></i><a id="lis" href="~/Home/products">Luxury Furniture</a></label>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="sky-form">
+                            <h4>Brand</h4>
+                            <div class="row1 row2 scroll-pane">
+
+                                <div class="col col-4">
+                                    <label><i></i><a id="lis" href="~/Home/products">Diamond Dolce Vita</a></label>
+                                    <label><i></i><a id="lis" href="~/Home/products">Kalamkaar</a></label>
+                                    <label><i></i><a id="lis" href="~/Home/products">Chinoit Wood Furniture</a></label>
+
+                                </div>
+                            </div>
+                        </section>
+
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Products End-->
